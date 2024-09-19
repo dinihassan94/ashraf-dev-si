@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      },
+      {
+        "type": "text",
+        "name": "argno_contrat"
+      },
+      {
+        "type": "text",
+        "name": "arg_natureprestation"
+      },
+      {
+        "type": "text",
+        "name": "arg_typeportef"
+      },
+      {
+        "type": "text",
+        "name": "arg_montant"
+      },
+      {
+        "type": "text",
+        "name": "arg_tva"
+      },
+      {
+        "type": "text",
+        "name": "arg_dateemis"
+      },
+      {
+        "type": "text",
+        "name": "arg_dateeche"
+      },
+      {
+        "type": "text",
+        "name": "arg_nodevis"
+      },
+      {
+        "type": "text",
+        "name": "arg_lignesdata"
+      },
+      {
+        "type": "text",
+        "name": "arg_comment"
+      },
+      {
+        "type": "text",
+        "name": "arg_kwh"
+      },
+      {
+        "type": "text",
+        "name": "arg_user_crea"
+      },
+      {
+        "type": "text",
+        "name": "arg_user_maj"
+      },
+      {
+        "type": "text",
+        "name": "arg_num_depannage"
+      },
+      {
+        "type": "text",
+        "name": "out_arg_factureno"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbupdater",
+      "action": "custom",
+      "options": {
+        "connection": "TEST",
+        "sql": {
+          "query": "call sp_createfactureex1(:P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,:P10,:P11,:P12,:P13,:P14,:P15)",
+          "params": [
+            {
+              "name": ":P1",
+              "value": "{{$_GET.argno_contrat}}"
+            },
+            {
+              "name": ":P2",
+              "value": "{{$_GET.arg_natureprestation}}"
+            },
+            {
+              "name": ":P3",
+              "value": "{{$_GET.arg_typeportef}}"
+            },
+            {
+              "name": ":P4",
+              "value": "{{$_GET.arg_montant}}"
+            },
+            {
+              "name": ":P5",
+              "value": "{{$_GET.arg_tva}}"
+            },
+            {
+              "name": ":P6",
+              "value": "{{$_GET.arg_dateemis}}"
+            },
+            {
+              "name": ":P7",
+              "value": "{{$_GET.arg_dateeche}}"
+            },
+            {
+              "name": ":P8",
+              "value": "{{$_GET.arg_nodevis}}"
+            },
+            {
+              "name": ":P9",
+              "value": "{{$_GET.arg_lignesdata}}"
+            },
+            {
+              "name": ":P10",
+              "value": "{{$_GET.arg_comment}}"
+            },
+            {
+              "name": ":P11",
+              "value": "{{$_GET.arg_kwh}}"
+            },
+            {
+              "name": ":P12",
+              "value": "{{$_GET.arg_user_crea}}"
+            },
+            {
+              "name": ":P13",
+              "value": "{{$_GET.arg_user_maj}}"
+            },
+            {
+              "name": ":P14",
+              "value": "{{$_GET.arg_num_depannage}}"
+            },
+            {
+              "name": ":P15",
+              "value": "{{$_GET.out_arg_factureno}}"
+            }
+          ]
+        }
+      },
+      "output": true,
+      "meta": [],
+      "outputType": "array",
+      "type": "dbcustom_query"
+    }
+  }
+}

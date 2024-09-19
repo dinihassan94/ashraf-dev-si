@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "id_ligne"
+      },
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbupdater",
+      "action": "custom",
+      "options": {
+        "connection": "TEST",
+        "sql": {
+          "query": "SELECT * FROM VIEW_TYPE_LIGNE WHERE ID_LIGNE_TARIF=:P1",
+          "params": [
+            {
+              "name": ":P1",
+              "value": "{{$_GET.id_ligne}}",
+              "test": "160177"
+            }
+          ]
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "name": "id_ligne_tarif",
+          "type": "number"
+        },
+        {
+          "name": "type_ligne",
+          "type": "number"
+        },
+        {
+          "name": "type_ligne2",
+          "type": "number"
+        }
+      ],
+      "type": "dbcustom_query"
+    }
+  }
+}
